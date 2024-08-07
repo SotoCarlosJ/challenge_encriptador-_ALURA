@@ -1,0 +1,30 @@
+:root {
+    /* Paleta de colores */
+    --darkBlue-100: #609ED4;
+    --darkBlue-200: #356EA9;
+    --darkBlue-300: #0A3871;
+    --darkBlue-400: #072B61;
+    --darkBlue-500: #052051;
+
+    --lightBlue-100: #F3F5FC;
+    --lightBlue-200: #EFF1FA;
+    --lightBlue-300: #E9ECF8;
+    --lightBlue-400: #AAB2D5;
+    --lightBlue-500: #757FB2;
+
+    --gray-100: #CED4DA;
+    --gray-200: #ADB5BD;
+    --gray-300: #868E96;
+    --gray-400: #495057;
+    --gray-500: #343A40;
+
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    box-sizing: border-box;
+    background-color: var(--lightBlue-100);
+}
