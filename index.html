@@ -17,7 +17,7 @@
         <!-- Input message section -->
         <section class="input">
             <!-- input field -->
-            <textarea class="input__message" id="input-text" placeholder="Ingrese el texto aqui" rows="6"></textarea>
+            <textarea class="input__message" id="message" placeholder="Ingrese el texto aqui" rows="6"></textarea>
             <!-- conditions text -->
             <div class="input__conditions">
                 <img class="conditions__icon" src="./assets/icons/exclamation-icon.png" alt="Exclamation icon">
@@ -25,18 +25,18 @@
             </div>
             <!-- buttons group -->
             <div class="input__buttons">
-                <button class="btn btn--encrypt">Encriptar</button>
-                <button class="btn btn--decrypt">Desencriptar</button>
+                <button onclick="btnEncrypt()" class="btn btn--encrypt" id="encrypt">Encriptar</button>
+                <button onclick="btnDecrypt()" class="btn btn--decrypt" id="decrypt">Desencriptar</button>
             </div>
         </section>
         <!-- Output message section -->
         <section class="output">
             <!-- output field -->
-            <textarea class="output__message" id="output-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</textarea>
+            <textarea class="output__message" id="result"></textarea>
             <!-- output title -->
-            <h6 class="output__title">Ningún mensaje fue encontrado</h6>
+            <h6 class="output__title" id="noMessage">Ningún mensaje fue encontrado</h6>
             <!-- output button -->
-            <button class="btn btn--copy output__button">Copiar</button>
+            <button onclick="copy();" class="btn btn--copy output__button" id="copy">Copiar</button>
         </section>
     </main>
     <footer class="footer container">

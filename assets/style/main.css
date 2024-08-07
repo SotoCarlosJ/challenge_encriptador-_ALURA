@@ -137,13 +137,16 @@ p {
     box-shadow: 1rem 1rem 3rem -1rem black;
     display: flex;
     flex-direction: column;
-    gap: 3.2rem
 }
 .output__message {
     border: none;
     resize: none;
     color: var(--gray-400);
-    display: none;
+    font-size: var(--font-large);
+    flex: 1;
+}
+.output__message:focus {
+    outline: none;
 }
 .output__title {
     color: var(--gray-500);
@@ -155,6 +158,7 @@ p {
 .output__button {
     display: none;
 }
+/* Responsive */
 /* Tablet view */
 @media (min-width: 768px) {
     .input__buttons {
@@ -180,7 +184,7 @@ p {
         flex: 1;
         padding-top: 6.4rem;
     }
-    .output {
+    .output__message {
         background-image: url('../img/output-bg.png');
         background-repeat: no-repeat;
         background-position: center;
