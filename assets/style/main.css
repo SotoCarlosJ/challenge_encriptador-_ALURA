@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Variables */
 :root {
-    /* Paleta de colores */
+    /* Palette  */
     --darkBlue-100: #609ED4;
     --darkBlue-200: #356EA9;
     --darkBlue-300: #0A3871;
@@ -18,13 +20,171 @@
     --gray-400: #495057;
     --gray-500: #343A40;
 
+    /* Typography  */
+    --base-font: "Roboto";
+
+    /* Font-sizes */
+    --font-display: 3.2em;
+    --font-large: 2.4em;
+    --font-medium: 1.6em;
+    --font-small: 1.2em;
 }
+/* Normalize */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
+    font-family: var(--base-font);
 }
 html {
-    box-sizing: border-box;
+    font-size: 62.5%;
     background-color: var(--lightBlue-100);
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+p {
+    font-size: var(--font-medium);
+}
+/* Helpers */
+.container {
+    padding: 0 1.6rem;
+}
+/* Partials */
+.header__logo {
+    max-width: 12rem;
+}
+.footer {
+    margin: 4rem 0;
+}
+.footer__text {
+    text-align: center;
+}
+/* Components */
+.btn {
+    font-size: var(--font-medium);
+    background-color: inherit;
+    color: var(--darkBlue-300);
+    border: 1px solid var(--darkBlue-300);
+    border-radius: 2.4rem;
+    padding: 2.4rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+.btn--encrypt {
+    background-color: var(--darkBlue-300);
+    color: white;
+    border: none;
+}
+.btn--encrypt:hover {
+    background-color: var(--darkBlue-400);
+}
+.btn--decrypt:hover,
+.btn--copy:hover {
+    background-color: var(--lightBlue-300);
+}
+/* Sections */
+/* Input message section */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 6.4rem;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+.input__message {
+    border: none;
+    padding: 1.2rem;
+    color: var(--darkBlue-300);
+    background-color: inherit;
+    font-size: var(--font-display);
+    resize: none;
+}
+.input__message::placeholder {
+    color: var(--lightBlue-400);
+}
+.input__message:focus {
+    outline: none;
+}
+.input__conditions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.conditions__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+.conditions__text {
+    color: var(--gray-400);
+}
+.input__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+/* Output message section */
+.output {
+    background-color: white;
+    padding: 3.2rem;
+    border-radius: 3.2rem;
+    box-shadow: 1rem 1rem 3rem -1rem black;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem
+}
+.output__message {
+    border: none;
+    resize: none;
+    color: var(--gray-400);
+    display: none;
+}
+.output__title {
+    color: var(--gray-500);
+    font-size: var(--font-large);
+    font-weight: bold;
+    text-align: center;
+    
+}
+.output__button {
+    display: none;
+}
+/* Tablet view */
+@media (min-width: 768px) {
+    .input__buttons {
+        flex-direction: row;
+    }
+    .input__buttons .btn {
+        flex: 1;
+    }
+}
+/* Desktop view */
+@media (min-width: 1024px) {
+    .header__logo {
+        margin-left: 2.8rem;
+    }
+    .main {
+        padding-left: 24rem;
+        padding-right: 4rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        flex: 1;
+    }
+    .input__message {
+        flex: 1;
+        padding-top: 6.4rem;
+    }
+    .output {
+        background-image: url('../img/output-bg.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        justify-content: end;
+    }
 }
