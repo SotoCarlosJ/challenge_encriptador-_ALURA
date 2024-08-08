@@ -164,6 +164,9 @@ p {
     padding-top: 0.8rem;
     display: block;
 }
+.error-animation {
+    animation: errorAnimation 800ms ease-in-out;
+}
 .output__title {
     color: var(--gray-500);
     font-size: var(--font-large);
@@ -207,4 +210,11 @@ p {
         background-size: contain;
         justify-content: end;
     }
+}
+/* Animacino */
+@keyframes errorAnimation {
+    0% {transform: scale(120%);}
+    25% {transform: scale(100%);}
+    50% {transform: scale(110%);}
+    100% {transform: scale(100%);}
 }

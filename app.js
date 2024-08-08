@@ -6,21 +6,19 @@ const errorMessage = document.getElementById('errorMessage');
 
 const encryptionCode = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
 
-const encrypt = (param) => {
-    let stringEncrypted = "";
+const encrypt = (stringEncrypted) => {
     for (let i = 0; i < encryptionCode.length; i++) {
-        if (param.includes(encryptionCode[i][0])) {
-            stringEncrypted = param.replaceAll(encryptionCode[i][0], encryptionCode[i][1]);
+        if (stringEncrypted.includes(encryptionCode[i][0])) {
+            stringEncrypted = stringEncrypted.replaceAll(encryptionCode[i][0], encryptionCode[i][1]);
         }
     }
     return stringEncrypted;
 };
 
-const decrypt = (param) => {
-    let stringDencrypted = "";
+const decrypt = (stringDencrypted) => {
     for (let i = 0; i < encryptionCode.length; i++) {
-        if (param.includes(encryptionCode[i][1])) {
-            stringDencrypted = param.replaceAll(encryptionCode[i][1], encryptionCode[i][0]);
+        if (stringDencrypted.includes(encryptionCode[i][1])) {
+            stringDencrypted = stringDencrypted.replaceAll(encryptionCode[i][1], encryptionCode[i][0]);
         }
     }
     return stringDencrypted;
@@ -31,13 +29,15 @@ const validateEntry = (string) => {
     const uppercaseRegex = /[A-Z]/;
     if(accentRegex.test(string) || uppercaseRegex.test(string)) {
         noMessage.textContent = "";
-        errorMessage.style.display = "block"
+        errorMessage.style.display = "block";
+        errorMessage.classList.add('error-animation');
         return false;
     } else return true;
 };
 
 const btnEncrypt = () => {
     if(validateEntry(message.value)) {
+        errorMessage.style.display = "block"
         const messageEncrypted = encrypt(message.value);
         message.value = "";
         result.style.backgroundImage = "none";
@@ -56,6 +56,5 @@ const btnDecrypt = () => {
 
 const copy = () => {
     navigator.clipboard.writeText(result.value)
-        .then(() => alert('Copied to clipboard!'))
-        .catch(err => console.error('Failed to copy: ', err));
+        .then(() => alert('Texto copiado'))
 };
