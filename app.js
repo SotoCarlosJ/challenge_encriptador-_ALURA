@@ -35,23 +35,29 @@ const validateEntry = (string) => {
     } else return true;
 };
 
+const resetStules = () => {
+    result.style.backgroundImage = "none";
+    noMessage.style.display = "none";
+    errorMessage.style.display = "none";
+    btnCopy.style.display = "block";
+};
+
 const btnEncrypt = () => {
     if(validateEntry(message.value)) {
-        errorMessage.style.display = "block"
         const messageEncrypted = encrypt(message.value);
         message.value = "";
-        result.style.backgroundImage = "none";
-        noMessage.style.display = "none";
-        errorMessage.style.display = "none"
-        btnCopy.style.display = "block";
-        result.value = messageEncrypted
+        resetStules();
+        result.value = messageEncrypted;
     }
 };
 
 const btnDecrypt = () => {
-    const messageEncrypted = decrypt(message.value);
-    message.value = "";
-    result.value = messageEncrypted
+    if(validateEntry(message.value)) {
+        const messageEncrypted = decrypt(message.value);
+        message.value = "";
+        resetStules();
+        result.value = messageEncrypted;
+    }
 };
 
 const copy = () => {
